@@ -1,0 +1,74 @@
+/* Container */
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  padding-left: 240px; /* room for fixed sidebar */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0;
+    flex-direction: column;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 90;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+  z-index: 100;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebarMobileVisible {
+    transform: translateX(0);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Hamburger Icon */
+.hamburgerIcon {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  background: #2d3748;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburgerIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,58 @@
+.carousel-wrapper {
+  width: 100%;
+  margin: 3rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.carousel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Or use 'contain' if you want the full image always visible */
+  display: block;
+  max-height: 600px;
+}
+
+/* Caption / Legend */
+.carousel .legend {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+}
+
+/* Arrows */
+.carousel .control-arrow {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.carousel .control-prev.control-arrow {
+  left: 15px;
+}
+
+.carousel .control-next.control-arrow {
+  right: 15px;
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+  .carousel img {
+    height: auto;
+    object-fit: contain; /* show full image even if smaller */
+    max-height: 300px;
+  }
+
+  .carousel .legend {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+}

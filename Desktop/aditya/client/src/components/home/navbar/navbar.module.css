@@ -1,0 +1,166 @@
+/* Base styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  font-family: 'Segoe UI', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a202c;
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navLinks li a {
+  text-decoration: none;
+  color: #2d3748;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navLinks li a:hover {
+  color: #3182ce;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  cursor: pointer;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background: white;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.dropdownContent a {
+  display: block;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  color: #2d3748;
+  font-size: 0.95rem;
+}
+
+.dropdownContent a:hover {
+  background: #ebf8ff;
+  color: #3182ce;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.buthrefn {
+  padding: 6px 12px;
+  background: #3182ce;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.cart {
+  text-decoration: none;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.searchContainer {
+  margin-left: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.searchInput {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.searchButton {
+  padding: 0.5rem 1rem;
+  background: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    color: #1a202c;
+  }
+
+  .navLinks,
+  .actions,
+  .searchContainer {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    border-top: 1px solid #eee;
+    z-index: 999;
+  }
+
+  .navLinks.active,
+  .actions.active,
+  .searchContainer.active {
+    display: flex;
+  }
+
+  .dropdownContent {
+    position: static;
+    box-shadow: none;
+    background: #f7fafc;
+  }
+
+  .dropbtn {
+    display: block;
+  }
+}
