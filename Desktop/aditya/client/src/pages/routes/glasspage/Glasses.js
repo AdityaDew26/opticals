@@ -16,12 +16,12 @@ export default function Glasses() {
 
   return (
     <div className={styles.container}>
-      {/* Hamburger Icon */}
+      {/* Hamburger Icon (for larger screens) */}
       <div className={styles.hamburgerIcon} onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
       </div>
 
-      {/* Sidebar */}
+      {/* Sidebar (always mounted, visibility toggled via CSS) */}
       <div
         className={`${styles.sidebar} ${sidebarOpen ? styles.sidebarMobileVisible : ''}`}
       >
@@ -35,6 +35,29 @@ export default function Glasses() {
         </h2>
         <GlassCard category={category} />
       </div>
+
+      {/* Floating Sidebar Toggle Button - Mobile Bottom */}
+      {!sidebarOpen && (
+        <button
+          className={styles.sidebarToggleBtn}
+          onClick={toggleSidebar}
+          aria-label="Open Filters"
+        >
+          <FaBars />
+        </button>
+      )}
+
+      {/* Close Button (floating when sidebar is open) */}
+      {sidebarOpen && (
+        <button
+          className={styles.sidebarToggleBtn}
+          onClick={toggleSidebar}
+          aria-label="Close Filters"
+          style={{ backgroundColor: '#fff', color: '#4f8cff' }}
+        >
+          <FaTimes />
+        </button>
+      )}
     </div>
   );
 }

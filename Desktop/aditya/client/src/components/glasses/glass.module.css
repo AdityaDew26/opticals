@@ -1,5 +1,16 @@
-/* GlassCard.module.css */
+/* Reuse common styling principles */
+:root {
+  --primary-color: #3182ce;
+  --hover-color: #225ea8;
+  --accent-color: #0070f3;
+  --danger-color: #e53e3e;
+  --success-color: #28a745;
+  --light-gray: #f8f9fa;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+}
 
+/* ================== GlassCard ================== */
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -9,16 +20,18 @@
 
 .card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   padding: 18px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
+
 .imageWrapper {
   position: relative;
   height: 120px;
@@ -28,13 +41,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .wishlistIcon {
   position: absolute;
   top: 8px;
   right: 8px;
-  color: #e53e3e;
+  color: var(--danger-color);
   font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -51,7 +65,7 @@
 }
 
 .category {
-  color: #3182ce;
+  color: var(--primary-color);
   font-weight: 500;
   margin-bottom: 4px;
 }
@@ -69,22 +83,34 @@
   flex-wrap: wrap;
 }
 
-.cartButton {
-  background: #3182ce;
-  color: #fff;
-  border: none;
+.cartButton,
+.buyButton {
+  flex: 1;
+  min-width: 48%;
   padding: 8px 12px;
+  font-size: 0.95rem;
+  border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cartButton {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.cartButton:hover {
+  background: var(--hover-color);
 }
 
 .buyButton {
-  background: green;
+  background: var(--success-color);
   color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+}
+
+.buyButton:hover {
+  background: #1e7e34;
 }
 
 .emptyState {
@@ -95,7 +121,7 @@
   padding: 2rem 0;
 }
 
-/* Glas-Details.module.css */
+/* ================== Glass Details ================== */
 
 .detailsContainer {
   display: flex;
@@ -103,8 +129,9 @@
   gap: 2rem;
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
-  background: #f8f9fa;
-  margin: 100px;
+  background: var(--light-gray);
+  margin: 100px auto;
+  max-width: 1200px;
 }
 
 .imageBox {
@@ -115,43 +142,18 @@
 
 .image {
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   object-fit: cover;
-}
-
-.wishlistIcon {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: white;
-  border-radius: 50%;
-  padding: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.wishlistIcon:hover {
-  transform: scale(1.1);
-}
-
-.heartFilled {
-  color: red;
-  font-size: 1.2rem;
-}
-
-.heartOutline {
-  color: #999;
-  font-size: 1.2rem;
 }
 
 .infoBox {
   flex: 1;
   min-width: 300px;
-  background: white;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
 }
 
 .name {
@@ -179,43 +181,13 @@
   margin-top: 1.5rem;
 }
 
-.cartButton,
-.buyButton {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.cartButton {
-  background: #0066cc;
-  color: white;
-}
-
-.cartButton:hover {
-  background: #004b99;
-}
-
-.buyButton {
-  background: #28a745;
-  color: white;
-}
-
-.buyButton:hover {
-  background: #218838;
-}
-
-/* Review Section */
-
 .reviewSection {
   margin-top: 3rem;
   padding: 2rem;
-  border-radius: 16px;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -226,7 +198,7 @@
   font-weight: 600;
   color: #0b2c4d;
   margin-bottom: 1.25rem;
-  border-bottom: 2px solid #0070f3;
+  border-bottom: 2px solid var(--accent-color);
   display: inline-block;
   padding-bottom: 4px;
 }
@@ -246,13 +218,13 @@
 
 .reviewInput:focus {
   outline: none;
-  border-color: #0070f3;
+  border-color: var(--accent-color);
   background: #ffffff;
 }
 
 .reviewButton {
   margin-top: 1rem;
-  background: linear-gradient(135deg, #0070f3, #0051a2);
+  background: linear-gradient(135deg, var(--accent-color), #0051a2);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -273,7 +245,7 @@
 
 .reviewItem {
   background: #f1f6ff;
-  border-left: 4px solid #0070f3;
+  border-left: 4px solid var(--accent-color);
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -293,18 +265,23 @@
   text-align: center;
 }
 
-@media (max-width: 768){
-  .buttons {
+/* ================== Mobile Responsive ================== */
+@media (max-width: 768px) {
+  .detailsContainer {
+    margin: 40px 20px;
     flex-direction: column;
   }
 
-  .cartButton,
-  .buyButton {
-    width: 100%;
+  .buttons {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .card {
-    padding: 16px;
+  .cartButton,
+  .buyButton,
+  .reviewButton {
+    width: 100%;
+    font-size: 0.95rem;
   }
 
   .productName {
@@ -314,22 +291,21 @@
   .price {
     font-size: 0.95rem;
   }
-   .reviewTitle {
+
+  .card {
+    padding: 16px;
+  }
+
+  .reviewTitle {
     font-size: 1.3rem;
   }
 
   .reviewInput {
     font-size: 0.95rem;
-    height: 90px;
-  }
-
-  .reviewButton {
-    width: 100%;
-    font-size: 0.95rem;
+    min-height: 90px;
   }
 
   .reviewItem {
     font-size: 0.9rem;
   }
 }
-
